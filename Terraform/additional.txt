@@ -1,0 +1,30 @@
+Build AWS Infrastructure :
+--------------------
+Step 1:  terraform init
+Step 2:  terraform plan
+Step 3:  terraform apply
+Step 4: yes
+
+Destroy: terraform destroy -> yes
+
+SET env variable:
+------------------
+Windows:
+ SET TF_VAR_aws_access_key="access_key"
+ For check: echo %TF_VAR_aws_access_key% -> you will display value for this variable
+Linux:
+ export TF_VAR_aws_access_key="access_key"
+ For check: env | grep TF
+
+ Terraform set variable:
+ --------------------------
+ terraform plan -var 'aws_region=us-west-1'
+ terraform apply -var 'aws_region=us-west-1'
+
+ query:
+ --------------
+ terraform output webserver_kpublic_ip
+
+ ssh key generate:
+ ------------------
+ ssh-keygen -t rsa -b 4096 -f aws_rsa
